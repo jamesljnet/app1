@@ -7,5 +7,22 @@
     </head>
     <body>
         <h1>This is a static web app</h1>
+        <button id="trigger" type="button">CALL THE FUNCTION</button>
+        
+        <script>
+            var getBtn = document.getElementById('trigger');
+
+            function callAPI(){
+                let data = { numberItem: 3737 };
+
+                fetch("/api/HttpTrigger1", {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                }).then(res => {
+                    console.log("Request complete: response", res);
+                });
+            }
+        </script>
     </body>
 </html>
